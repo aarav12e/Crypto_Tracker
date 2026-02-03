@@ -10,13 +10,10 @@ const Page = async ({ params }: NextPageProps) => {
   const { id } = await params;
 
   const [coinData, coinOHLCData] = await Promise.all([
-    fetcher<CoinDetailsData>(`/coins/${id}`, {
-      dex_pair_format: 'contract_address',
-    }),
-    fetcher<OHLCData>(`/coins/${id}/ohlc`, {
+    fetcher<CoinDetailsData>(`/coins/${id}`),
+    fetcher<OHLCData[]>(`/coins/${id}/ohlc`, {
       vs_currency: 'usd',
       days: 1,
-      interval: 'hourly',
       precision: 'full',
     }),
   ]);

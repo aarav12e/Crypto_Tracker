@@ -203,6 +203,13 @@ interface CoinDetailsData {
     price_change_percentage_30d_in_currency: {
       usd: number;
     };
+    price_change_percentage_24h: number;
+    high_24h: {
+      usd: number;
+    };
+    low_24h: {
+      usd: number;
+    };
     market_cap: {
       usd: number;
     };
